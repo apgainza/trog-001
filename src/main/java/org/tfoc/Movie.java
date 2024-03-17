@@ -1,29 +1,47 @@
 package org.tfoc;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+import static org.tfoc.MovieType.NEW_RELEASE;
+
+@Getter
+@AllArgsConstructor
 public class Movie {
 
-    public static final int CHILDRENS = 2;
-    public static final int NEW_RELEASE = 1;
-    public static final int REGULAR = 0;
+    private final String title;
+    private final MovieType movieType;
 
-    private String _title;
-    private int _priceCode;
-
-    public Movie(String title, int priceCode) {
-        _title = title;
-        _priceCode = priceCode;
+    public Double calculatePrice(int daysRented) {
+        double thisAmount = 0;
+        //determine amounts for each line
+        switch (movieType) {
+            case REGULAR:
+                thisAmount += 2;
+                if (daysRented > 2)
+                    thisAmount += (daysRented - 2) * 1.5;
+                break;
+            case NEW_RELEASE:
+                thisAmount += daysRented * 3;
+                break;
+            case CHILDRENS:
+                thisAmount += 1.5;
+                if (daysRented > 3)
+                    thisAmount += (daysRented - 3) * 1.5;
+                break;
+        }
+        return thisAmount;
     }
 
-    public int getPriceCode() {
-        return _priceCode;
-    }
+    public int calculatePoints(int daysRented) {
+        // add frequent renter points
+        int frequentRenterPoints = 1;
+        // add bonus for a two day new release rental
 
-    public void setPriceCode(int arg) {
-        _priceCode = arg;
-    }
+        if (NEW_RELEASE == movieType && daysRented > 1)
+            frequentRenterPoints++;
 
-    public String getTitle() {
-        return _title;
+        return frequentRenterPoints;
     }
 
 }
