@@ -10,7 +10,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class Rental {
 
-    private Movie movie;
+    private AbstractMovie movie;
     private int daysRented;
 
     public Double calculatePrice() {

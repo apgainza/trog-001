@@ -7,7 +7,7 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @SuperBuilder
 @AllArgsConstructor
-public abstract class Movie {
+public abstract class AbstractMovie {
 
     private final String title;
 

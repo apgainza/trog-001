@@ -19,7 +19,7 @@ class CustomerTest {
     @Test
     public void testAddRental() {
         Customer customer2 = new CustomerBuilder().withName("Sallie").build();
-        Movie movie1 = new NewReleaseMovie("Gone with the Wind");
+        AbstractMovie movie1 = new NewReleaseMovie("Gone with the Wind");
         Rental rental1 = new Rental(movie1, 3); // 3 day rental
         customer2.addRental(rental1);
     }
@@ -32,7 +32,7 @@ class CustomerTest {
 
     @Test
     public void statementForRegularMovie() {
-        Movie movie1 = new RegularMovie("Gone with the Wind");
+        AbstractMovie movie1 = new RegularMovie("Gone with the Wind");
         Rental rental1 = new Rental(movie1, 3); // 3 day rental
         Customer customer2 =
                 new CustomerBuilder()
@@ -49,7 +49,7 @@ class CustomerTest {
 
     @Test
     public void statementForNewReleaseMovie() {
-        Movie movie1 = new NewReleaseMovie("Star Wars");
+        AbstractMovie movie1 = new NewReleaseMovie("Star Wars");
         Rental rental1 = new Rental(movie1, 3); // 3 day rental
         Customer customer2 =
                 new CustomerBuilder()
@@ -66,7 +66,7 @@ class CustomerTest {
 
     @Test
     public void statementForChildrensMovie() {
-        Movie movie1 = new ChildrensMovie("Madagascar");
+        AbstractMovie movie1 = new ChildrensMovie("Madagascar");
         Rental rental1 = new Rental(movie1, 3); // 3 day rental
         Customer customer2
                 = new CustomerBuilder()
@@ -83,11 +83,11 @@ class CustomerTest {
 
     @Test
     public void statementForManyMovies() {
-        Movie movie1 = new ChildrensMovie("Madagascar");
+        AbstractMovie movie1 = new ChildrensMovie("Madagascar");
         Rental rental1 = new Rental(movie1, 6); // 6 day rental
-        Movie movie2 = new NewReleaseMovie("Star Wars");
+        AbstractMovie movie2 = new NewReleaseMovie("Star Wars");
         Rental rental2 = new Rental(movie2, 2); // 2 day rental
-        Movie movie3 = new RegularMovie("Gone with the Wind");
+        AbstractMovie movie3 = new RegularMovie("Gone with the Wind");
         Rental rental3 = new Rental(movie3, 8); // 8 day rental
         Customer customer1
                 = new CustomerBuilder()

@@ -3,7 +3,7 @@ package org.tfoc;
 import lombok.Setter;
 
 @Setter
-public class ChildrensMovie extends Movie {
+public class ChildrensMovie extends AbstractMovie {
 
     public static final double AMOUNT = 1.5;
 

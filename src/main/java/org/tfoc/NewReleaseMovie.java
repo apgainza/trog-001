@@ -3,7 +3,7 @@ package org.tfoc;
 import lombok.Setter;
 
 @Setter
-public class NewReleaseMovie extends Movie {
+public class NewReleaseMovie extends AbstractMovie {
 
     public NewReleaseMovie(String title) {
         super(title);
